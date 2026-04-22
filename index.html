@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nominatim Explorer — OpenStreetMap API</title>
-  <meta name="description" content="Explora los endpoints de la API Nominatim de OpenStreetMap: búsqueda, detalles y geocodificación inversa." />
+  <meta name="description"
+    content="Explora los endpoints de la API Nominatim de OpenStreetMap: búsqueda, detalles y geocodificación inversa." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <!-- Background particles -->
   <div class="bg-particles" id="bg-particles"></div>
@@ -20,8 +25,9 @@
       <div class="logo">
         <div class="logo-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="3"/>
-            <path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
           </svg>
         </div>
         <div>
@@ -42,10 +48,10 @@
     <!-- Hero -->
     <section class="hero">
       <h1 class="hero-title">
-        Explora la API<br/>
         <span class="gradient-text">Nominatim</span>
       </h1>
-      <p class="hero-desc">Accede a geocodificación, búsqueda de lugares y detalles OSM directamente desde tu navegador.</p>
+      <p class="hero-desc">Geocodificación, búsqueda de lugares y detalles OSM.
+      </p>
       <div class="endpoint-tags">
         <span class="tag tag-search">⌕ Search</span>
         <span class="tag tag-details">◎ Details</span>
@@ -56,16 +62,28 @@
     <!-- Tabs -->
     <div class="tabs-wrapper">
       <div class="tabs" role="tablist">
-        <button class="tab active" id="tab-search" role="tab" aria-selected="true" aria-controls="panel-search" onclick="switchTab('search')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <button class="tab active" id="tab-search" role="tab" aria-selected="true" aria-controls="panel-search"
+          onclick="switchTab('search')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
           Search
         </button>
-        <button class="tab" id="tab-details" role="tab" aria-selected="false" aria-controls="panel-details" onclick="switchTab('details')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        <button class="tab" id="tab-details" role="tab" aria-selected="false" aria-controls="panel-details"
+          onclick="switchTab('details')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 16v-4M12 8h.01" />
+          </svg>
           Details
         </button>
-        <button class="tab" id="tab-reverse" role="tab" aria-selected="false" aria-controls="panel-reverse" onclick="switchTab('reverse')">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <button class="tab" id="tab-reverse" role="tab" aria-selected="false" aria-controls="panel-reverse"
+          onclick="switchTab('reverse')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+            <path d="M3 3v5h5" />
+          </svg>
           Reverse
         </button>
       </div>
@@ -97,7 +115,10 @@
         </div>
         <div class="card-actions">
           <button class="btn-primary" id="btn-search" onclick="runSearch()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.3-4.3" />
+            </svg>
             Ejecutar búsqueda
           </button>
         </div>
@@ -136,7 +157,10 @@
         </div>
         <div class="card-actions">
           <button class="btn-primary" id="btn-details" onclick="runDetails()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 16v-4M12 8h.01" />
+            </svg>
             Obtener detalles
           </button>
         </div>
@@ -182,7 +206,10 @@
         </div>
         <div class="card-actions">
           <button class="btn-primary" id="btn-reverse" onclick="runReverse()">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+              <path d="M3 3v5h5" />
+            </svg>
             Geocodificar inversamente
           </button>
         </div>
@@ -194,9 +221,11 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <p>Datos © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a> · API por <a href="https://nominatim.org" target="_blank">Nominatim</a></p>
+    <p>Datos © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap contributors</a> · API
+      por <a href="https://nominatim.org" target="_blank">Nominatim</a></p>
   </footer>
 
   <script src="app.js"></script>
 </body>
+
 </html>
