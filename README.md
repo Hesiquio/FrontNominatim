@@ -1,130 +1,104 @@
 # 🌍 Nominatim Explorer
 
-Frontend interactivo para explorar la API pública de [Nominatim](https://nominatim.org) de OpenStreetMap directamente desde el navegador, sin necesidad de backend.
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge)]()
+[![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)]()
+[![OSM](https://img.shields.io/badge/Data-OpenStreetMap-orange?style=for-the-badge)](https://www.openstreetmap.org/)
 
-## 📸 Vista general
+**Nominatim Explorer** es un frontend interactivo de alto rendimiento diseñado para explorar la API pública de [Nominatim](https://nominatim.org) (OpenStreetMap) directamente desde tu navegador. Olvídate de configurar backends complejos; esta herramienta procesa geocodificación, detalles de objetos y búsqueda inversa con una interfaz **premium, rápida y responsive**.
 
-Interfaz de tema oscuro con tres secciones independientes, una para cada endpoint de la API. Permite configurar parámetros, previsualizar la URL generada en tiempo real y ver los resultados formateados junto con el JSON crudo colapsable.
-
----
-
-## 🚀 Tecnologías
-
-- **HTML5** semántico
-- **CSS3** puro (sin frameworks) — glassmorphism, animaciones, tema oscuro
-- **JavaScript** vanilla (Fetch API, sin dependencias)
-- **Google Fonts** — Inter + JetBrains Mono
-- Servidor local: `python -m http.server`
+![Nominatim Explorer Mockup](./nominatim_explorer_mockup_1778642600527.png)
 
 ---
 
-## 📡 Endpoints implementados
+## ✨ Características Principales
 
-### 1. `/search.php` — Búsqueda por ciudad
-
-Busca lugares en OpenStreetMap por nombre de ciudad, dirección o lugar.
-
-```
-GET https://nominatim.openstreetmap.org/search.php?city=bern&format=jsonv2
-```
-
-**Parámetros configurables:**
-| Parámetro | Descripción |
-|---|---|
-| `city` | Nombre de la ciudad a buscar |
-| `limit` | Máximo de resultados (1–20) |
-| `accept-language` | Idioma de respuesta (`es`, `en`, `de`…) |
+- 🔍 **Búsqueda Avanzada**: Localiza cualquier lugar del mundo por nombre, dirección o categoría.
+- 🆔 **Detalles OSM**: Obtén la jerarquía completa, nombres en múltiples idiomas y metadatos de cualquier Nodo, Vía o Relación.
+- 📍 **Geocodificación Inversa**: Convierte coordenadas de latitud y longitud en direcciones exactas con un solo click.
+- ⚡ **Live URL Preview**: Visualiza la construcción de la URL de la API en tiempo real mientras ajustas los parámetros.
+- 📄 **JSON Explorer**: Visor de respuestas crudas integrado con resaltado de sintaxis y estructura colapsable.
+- 🎨 **Interfaz Premium**: Tema oscuro cinemático, efectos de glassmorphism y partículas animadas.
 
 ---
 
-### 2. `/details` — Detalles de un objeto OSM
+## 🛠️ Stack Tecnológico
 
-Devuelve información completa de un elemento de OpenStreetMap por su tipo e ID.
+<p align="left">
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+  <img src="https://img.shields.io/badge/OpenStreetMap-7EBC6F?style=for-the-badge&logo=openstreetmap&logoColor=white" />
+</p>
 
-```
-GET https://nominatim.openstreetmap.org/details?osmtype=R&osmid=175905&format=json
-```
-
-**Parámetros configurables:**
-| Parámetro | Descripción |
-|---|---|
-| `osmtype` | Tipo de objeto: `R` (Relation), `W` (Way), `N` (Node) |
-| `osmid` | ID numérico del objeto OSM |
-| `accept-language` | Idioma de respuesta |
+- **Vanilla JS**: Lógica pura sin frameworks pesados para un rendimiento instantáneo.
+- **Modern CSS**: Layouts con Flexbox/Grid, animaciones fluidas y variables nativas.
+- **Inter & JetBrains Mono**: Tipografía optimizada para lectura de datos.
 
 ---
 
-### 3. `/reverse` — Geocodificación inversa
+## 🚀 Inicio Rápido
 
-Convierte coordenadas GPS (latitud/longitud) en una dirección legible.
+### Requisitos
+- [Node.js](https://nodejs.org/) instalado (recomendado) o un servidor HTTP local (Python, etc).
 
-```
-GET https://nominatim.openstreetmap.org/reverse?lat=40.7127281&lon=-74.0060152&zoom=10&format=json
-```
-
-**Parámetros configurables:**
-| Parámetro | Descripción |
-|---|---|
-| `lat` | Latitud decimal |
-| `lon` | Longitud decimal |
-| `zoom` | Nivel de detalle (3=país … 18=edificio) |
-| `accept-language` | Idioma de respuesta |
-
----
-
-## ✨ Características
-
-- **Previsualización de URL en tiempo real** — el endpoint se actualiza mientras escribes los parámetros
-- **Resultados formateados** — tarjetas con los datos más relevantes de cada endpoint
-- **Visor JSON colapsable** con resaltado de sintaxis (strings, números, booleanos, nulos)
-- **Links directos a OpenStreetMap** para cada resultado
-- **Soporte de tecla Enter** para ejecutar consultas desde el teclado
-- **Diseño responsive** adaptado a móvil y escritorio
-- **Partículas animadas de fondo** para una experiencia visual premium
-
----
-
-## 🗂️ Estructura del proyecto
-
-```
-FrontNominatim/
-├── index.html   # Estructura de la interfaz (tabs, formularios, paneles)
-├── style.css    # Estilos completos (dark mode, animaciones, layout)
-└── app.js       # Lógica de fetching, renderizado y UI interactiva
-```
-
----
-
-## ▶️ Cómo ejecutar
-
-1. Clona el repositorio:
+### Instalación y Ejecución
+1. **Clona el repositorio:**
    ```bash
    git clone https://github.com/Hesiquio/FrontNominatim.git
    cd FrontNominatim
    ```
 
-2. Inicia un servidor local (requiere Python):
+2. **Instala las dependencias de desarrollo:**
    ```bash
-   python -m http.server 7830
+   npm install
    ```
 
-3. Abre tu navegador en:
-   ```
-   http://localhost:7830
+3. **Inicia el servidor:**
+   ```bash
+   npm start
    ```
 
-> **Nota:** La API de Nominatim requiere un servidor HTTP (no `file://`). Usa cualquier servidor local como Live Server de VS Code, `npx serve`, etc.
+4. **Accede a la aplicación:**
+   Abre [http://localhost:3000](http://localhost:3000) (o el puerto indicado por `serve`) en tu navegador.
+
+> [!NOTE]
+> También puedes simplemente abrir el archivo `index.html` con la extensión **Live Server** de VS Code o usar `python -m http.server 7830`.
 
 ---
 
-## 📋 Notas sobre la API
+## 📡 Endpoints Implementados
 
-- La API de Nominatim es de uso público y gratuito.
-- Se debe respetar su [política de uso](https://operations.osmfoundation.org/policies/nominatim/): máximo 1 solicitud por segundo y un `User-Agent` identificativo.
-- Los datos provienen de © [Colaboradores de OpenStreetMap](https://www.openstreetmap.org/copyright).
+| Módulo | Endpoint | Descripción |
+| :--- | :--- | :--- |
+| **Search** | `/search.php` | Búsqueda global por texto libre o parámetros específicos (ciudad, país). |
+| **Details** | `/details` | Recuperación de metadatos profundos mediante `osm_id` y `osm_type`. |
+| **Reverse** | `/reverse` | Identificación de direcciones basadas en coordenadas GPS exactas. |
+
+---
+
+## 📋 Políticas de Uso de la API
+
+Este proyecto utiliza la API gratuita de Nominatim. Al usarlo, asegúrate de cumplir con sus políticas:
+- **Límite de velocidad**: Máximo 1 solicitud por segundo.
+- **User-Agent**: El script incluye un identificador genérico; para uso intensivo, personaliza los headers en `app.js`.
+- **Atribución**: Los datos son © [Colaboradores de OpenStreetMap](https://www.openstreetmap.org/copyright).
+
+---
+
+## 📁 Estructura del Proyecto
+
+```text
+FrontNominatim/
+├── index.html   # Esqueleto semántico y estructura de tabs
+├── style.css    # Motor de diseño, animaciones y sistema de tokens
+├── app.js       # Orquestador de peticiones, lógica de UI y renderizado
+└── package.json # Configuración de scripts y dependencias
+```
 
 ---
 
 ## 📄 Licencia
 
-Proyecto de uso libre. Los datos del mapa son © OpenStreetMap contributors bajo licencia [ODbL](https://opendatacommons.org/licenses/odbl/).
+Distribuido bajo la Licencia MIT. Consulta el archivo `LICENSE` para más información.
+
+Desarrollado con ❤️ por [Hesiquio](https://github.com/Hesiquio).

@@ -1,0 +1,23 @@
+{
+  "name": "front-nominatim",
+  "version": "1.0.0",
+  "description": "Explorador interactivo de la API de Nominatim OpenStreetMap",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve ."
+  },
+  "keywords": [
+    "nominatim",
+    "osm",
+    "openstreetmap",
+    "explorer",
+    "geocoding",
+    "reverse-geocoding"
+  ],
+  "author": "Hesiquio",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
